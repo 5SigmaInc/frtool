@@ -10,9 +10,12 @@ class ApiClient:
     def collect_questions(self):
         endpoint = f"{self.base_url}/questions"
         headers = {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            # It's recommended to send the API key in the headers, as this method is prioritized.
+            "Authorization": self.api_key
         }
         data = {
+            # Alternatively api_key can be in data
             "api_key": self.api_key
         }
         try:
@@ -26,9 +29,12 @@ class ApiClient:
     def calculate_score(self, answers):
         endpoint = f"{self.base_url}/score"
         headers = {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            # It's recommended to send the API key in the headers, as this method is prioritized.
+            "Authorization": self.api_key
         }
         data = {
+            # Alternatively api_key can be in data
             "api_key": self.api_key,
             "answers": answers
         }
